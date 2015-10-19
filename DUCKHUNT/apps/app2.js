@@ -4,9 +4,11 @@ $(document).ready(function(){
   $('#button').click(startGame);
   $(".ship").click(blowUp);
   $('#button').animate({'top': 250}, 3000);
+  $("<div>").appendTo(".surface").text("Level:   " + level).attr("class", "level");
+  $("<div>").appendTo(".surface").text("Score: "+ points).attr("class", "points");
 });
 var level = 1;
-
+var points = 0;
 
 
 function Ships(){
@@ -29,19 +31,19 @@ var shipsFly = function(){
   flyInt = setInterval(function(){
 
     $(".ship").not(":even").animate({
-      "left": Math.random()*(c/50),
-      "top": Math.random()*(c/5)
+      "left": Math.random()*(c/5),
+      "top": Math.random()*(c/2)
     },
-    4000)
+    1000)
     .animate({
       "left": Math.random()*(c/5),
-      "top": Math.random()*(c/5)
+      "top": Math.random()*(c/4)
     },
     2900);
 
   $('.ship').not(":odd").animate({
-      "left": Math.random()*(c/45),
-      "top": Math.random()*(c/10)
+      "left": Math.random()*(c/4),
+      "top": Math.random()*(c/2)
     },
     3500)
     .animate({
@@ -50,8 +52,7 @@ var shipsFly = function(){
     },
     5000);
     c++;
-    console.log(c);
-    if(c > level*9000) {clearInterval(flyInt)}
+    if(c > level*9000) {endGame()}
   })
 };
 
@@ -71,12 +72,23 @@ var startGame = function (){
 var blowUp = function(e){
   $(e.target).addClass("destroyed")
   .animate({"top" : "450px"});
+  setTimeout(function(){$(e.target).css('display', 'none')}, 1500);
   console.log("ship destroyed");
   clearInterval(this.shipInt);
   console.log(this.flyInt);
   console.log(this);
+  points++;
+  $(".points").text("Score: "+ points)
+  if (points >= level+10){
+    level++;
+    console.log(level);
+  } else if (points >= 50 );
+  console.log(points)
+    endGame();
 };
 
-var endGame = function (){
-
-}
+var endGame = function(){
+  clearInterval(invasionInt);
+  $('<div>').appendTo('.surface').attr('id', 'over').text("Game Over");
+  $('.ship').css('display', 'none');
+};
