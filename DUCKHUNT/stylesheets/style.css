@@ -1,12 +1,31 @@
+body {
+  background-color: black;
+}
+h1 {
+  font-family: "Creepster";
+  color: rgb(141, 231, 28);
+  font-size: 100px;
+  left: 10%;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  text-align: center;
+
+
+}
 div.surface{
   z-index: -10;
-  height: 526px;
-  width: 780px;
+  background-size: cover;
+  height: 80%;
+  width: 80%;
   background-image: url("http://www.redorbit.com/media/uploads/2013/12/Mars-Surface-Atmosphere_SS_121013.jpg");
   background-repeat: no-repeat;
   position: absolute;
-  border: 15px rgb(215, 140, 27); 
+  border: 15px rgb(255, 80, 24);
   border-style: groove;
+  overflow: hidden;
+  margin: 50px;
+  cursor: url('http://www.rw-designer.com/cursor-view/23292.gif'), auto;
 }
 
 div.ship {
@@ -16,20 +35,17 @@ background-image: url("https://thomasnaylor.files.wordpress.com/2011/05/landeran
 background-repeat: no-repeat;
 background-size: 60px 60px;
 position: absolute;
-top: 80px;
+top: 30%;
+left: 145%;
 z-index: 10;
 float: right;
 margin: 5px;
-
-/*-webkit-animation-name: spriteOne;
--webkit-animation-duration: 5s;
-animation-name: spriteOne;
-animation-duration: 5s;*/
 }
 
 div.destroyed {
   background-image: url("http://rs523.pbsrc.com/albums/w356/unkadug/explosion-1.gif~c200");
   background-repeat: no-repeat;
+
 }
 
 
@@ -37,12 +53,14 @@ div.destroyed {
   position: relative;
   top: 100%;
   width: 100px;
-  height: 20px;
+  height: 35px;
   background: red;
   color: white;
   margin: 0 auto;
   text-align: center;
   left: 40%;
+  font-family: 'Press Start 2P';
+  font-stretch: ultra-expanded;
 }
 #button {
 	-moz-box-shadow: 0px 6px 0px 0px #8a2a21;
@@ -63,7 +81,8 @@ div.destroyed {
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
+	font-family: 'Press Start 2P';
+  font-stretch: ultra-expanded;
 	font-size:17px;
 	padding:7px 25px;
 	text-decoration:none;
@@ -82,4 +101,37 @@ div.destroyed {
 #button:active {
 	position:relative;
 	top:1px;
+}
+
+.level {
+  font-family: 'Press Start 2P';
+  font-stretch: ultra-expanded;
+  color: white;
+}
+
+.points {
+  font-family: 'Press Start 2P';
+  font-stretch: ultra-expanded;
+  color: white;
+  float: left;
+}
+
+#over {
+  font-family: 'creepster';
+  font-stretch: expanded;
+  color: rgb(141, 231, 28);
+  text-align: center;
+  z-index: 100;
+  font-size: 200px;
+  height: 200px;
+  width: 500px;
+  position: absolute;
+}
+
+.next{
+  font-family: 'Press Start 2P';
+  font-size: 100px;
+  color: red;
+  left: 30%;
+  top: 20%;
 }
